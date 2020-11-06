@@ -9,6 +9,7 @@ import NavigationService from './NavigationService';
 
 // Screen imports
 import Posts from './Screens/Main/Posts';
+import PostDetail from './Screens/Main/PostDetail';
 
 // Root and main Stacks Initilization
 const RootStack = createStackNavigator();
@@ -20,6 +21,7 @@ function Main() {
     return (
       <MainStack.Navigator headerMode='none' >
         <MainStack.Screen name="Posts" component={Posts} />
+        <MainStack.Screen name="PostDetail" component={PostDetail} />
       </MainStack.Navigator>
     );
   }

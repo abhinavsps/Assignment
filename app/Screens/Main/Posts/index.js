@@ -18,7 +18,7 @@ const Posts = (props) => {
   const renderItem = ({ item,index }) => (
         <TouchableOpacity 
             style={styles.itemContainer}
-            onPress={()=>{}}
+            onPress={()=>{navigation.navigate("PostDetail",{Id:item.id,Title:item.title,Body:item.body})}}
         >
         <Text numberOfLines={1} style={styles.title}>{item.title}</Text>
         <Text numberOfLines={1} style={styles.description}>{item.body}</Text>
