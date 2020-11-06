@@ -1,37 +1,38 @@
 # Assignment
 
-Getting Started
+**Getting Started**
 
 
 Prerequisites
+
 What things you need to install the software and how to install them
 
 React Native (last tested on react-native0.63.3)  - https://facebook.github.io/react-native/docs/getting-started
 
-Installing
+**Installing**
 
 A step by step series of examples that tell you how to get a development env running
 
 
-Install node
+- Install node
 
-  $ brew install node
+ > $ brew install node
 
-iOS
+- iOS
 
-  $ npm install
+  > $ npm install
 
-  $ cd ios
+  > $ cd ios
   
-  $ pod install
+  > $ pod install
   
-  $ cd ..
+  > $ cd ..
   
-  $ react-native run-ios
+  > $ react-native run-ios
   
 
-Android
+- Android
 
-  $ npm install
+  > $ npm install
 
-  $ react-native run-android
+  > $ react-native run-android
