@@ -1,4 +1,4 @@
-import React, { useEffect,useState,useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FlatList,Text,View,TouchableOpacity,StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
@@ -15,6 +15,7 @@ const Posts = (props) => {
     props.getPosts()
   },[])
 
+  // Render Post Card
   const renderItem = ({ item,index }) => (
         <TouchableOpacity 
             style={styles.itemContainer}

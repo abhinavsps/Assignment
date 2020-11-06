@@ -1,5 +1,5 @@
 // This file contains all common navigator method()
-import { CommonActions,StackActions } from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 let _navigator;
 
 // Setting a Top level navigator from App.js
@@ -17,31 +17,8 @@ function navigate(routeName, params) {
    })
  );
 }
-// Push to a particular screen
-//params -> (Name of screen, parameters)
-function push(routeName, params) {
-  _navigator.dispatch(StackActions.push({
-    routeName: routeName,
-    params: params
-  }));
- }
-
-// reset the current stack and navigate to a particular screen
-//params -> (Name of screen, parameters)
-
-function reset(routeName, params) {
-_navigator.dispatch(StackActions.reset({
-  index: 0,
-  // key:null,
-  actions: [
-    CommonActions.navigate({ name:routeName,params})
-]
-}));
-}
 // add other navigation functions that you need and export them
 export default {
   navigate,
   setTopLevelNavigator,
-   reset,
-   push
 };
