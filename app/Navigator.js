@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 // Helper Functions
 import NavigationService from './NavigationService';
 
-//Home Screen
+// Screen imports
 import Posts from './Screens/Main/Posts';
 
 // Root and main Stacks Initilization
@@ -18,7 +18,7 @@ const MainStack = createStackNavigator();
 function Main() {
 
     return (
-      <MainStack.Navigator  >
+      <MainStack.Navigator headerMode='none' >
         <MainStack.Screen name="Posts" component={Posts} />
       </MainStack.Navigator>
     );

@@ -2,7 +2,8 @@
 import React from 'react';
 import {
   StyleSheet,
-  View
+  View,
+  SafeAreaView
 } from 'react-native';
 import { Provider } from 'react-redux';
 import AppNavigator from './app/Navigator';
@@ -16,11 +17,11 @@ const store = createStore(appReducer,applyMiddleware(thunk));
 function App(){
 
   return (
-     <View style={styles.container} >
+     <SafeAreaView style={styles.container} >
         <Provider store={store}>
               <AppNavigator />
         </Provider>
-      </View>
+      </SafeAreaView>
   );
 };
 
