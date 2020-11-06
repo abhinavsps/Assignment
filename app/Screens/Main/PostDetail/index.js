@@ -1,11 +1,11 @@
 import React, { useEffect,useState,useLayoutEffect } from 'react';
-import { FlatList,Text,View,TouchableOpacity,StyleSheet } from 'react-native';
+import { FlatList,Text,View,TouchableOpacity,StyleSheet,Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { useNavigation , useRoute } from '@react-navigation/native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import ProgressBar from "../../../Utils/ProgressBar";
 import PostHeader from "../../../Utils/PostHeader"
-import {getPostDetails} from '../../../Redux/Actions/Post_action'
+import {getPostDetails,DeletePost} from '../../../Redux/Actions/Post_action'
 
 const PostDetail = (props) => {
   const navigation = useNavigation();
@@ -15,15 +15,33 @@ const PostDetail = (props) => {
      props.getPostDetails(route.params.Id)
   },[])
 
+  // Delete Post
+  const deletePost=()=>{
+    Alert.alert(
+      'Delete Post',
+      'Are you sure for delete this post?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel'
+        },
+        { text: 'OK', onPress: () => props.DeletePost(route.params.Id)}
+      ],
+      { cancelable: false }
+    );
+  }
+ // Render Comment Card
   const renderItem = ({ item,index }) => (
     <View style={styles.itemContainer}>
       <Text numberOfLines={1} style={styles.name}>{item.name}</Text>
       <Text  style={styles.description}>{item.body}</Text>
     </View>
-);
+  );
+  
     return  (
       <View style={styles.container}>
-          <PostHeader Title={route.params.Title} Navigation={navigation} backEnable deleteEnable onDeletePress={()=>{}} />
+          <PostHeader Title={route.params.Title} Navigation={navigation} backEnable deleteEnable onDeletePress={deletePost} />
           <View style={styles.innerContainer}>
             <View style={styles.postContainer}>
               <Text style={styles.postDescription}>{route.params.Body}</Text>
@@ -103,4 +121,4 @@ function mapStateToProps(state) {
     return { hideProgress,Posts,Comments}
 }
 
-export default connect(mapStateToProps, {getPostDetails})(PostDetail)
+export default connect(mapStateToProps, {getPostDetails,DeletePost})(PostDetail)
